@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>Amostras Liberadas | Mapas da Lulu</title>
+    <title>Amostras liberadas | Mapas da Lulu</title>
     <link rel="icon" href="img/favicon.svg" />
     <link rel="stylesheet" href="obrigado.css?v=1911251">
     <!-- Faixa Black Friday 2026 -->
@@ -56,6 +56,25 @@
       .bf26-venda-marca,.bf26-venda-bonus{align-items:center}
       .bf26-venda-titulo{font-size:40px}
       .bf26-venda-sub,.bf26-venda-bonus p{font-size:14px}
+    }
+    /* Aviso de e-mail (novo fluxo com pesquisa) */
+    .aviso-email{width:100%;box-sizing:border-box;display:flex;gap:22px;align-items:flex-start;background:#E5F1FE;border:2px solid #B9D9FC;border-top:none;padding:26px 30px;font-family:'Radio Canada Big',sans-serif;color:#161819}
+    .aviso-email .ic{flex:none;width:58px;height:58px;border-radius:50%;background:#469CF9;display:grid;place-items:center;animation:mdl-pulsa 2s ease-in-out infinite}
+    .aviso-email .ic svg{width:28px;height:28px}
+    @keyframes mdl-pulsa{0%,100%{box-shadow:0 0 0 0 rgba(70,156,249,.45)}50%{box-shadow:0 0 0 12px rgba(70,156,249,0)}}
+    .aviso-email h2{font-family:"New Spirit",serif;font-weight:600;font-size:34px;line-height:1.12;margin:0 0 8px}
+    .aviso-email h2 b{color:#469CF9;font-weight:600}
+    .aviso-email p{margin:0 0 10px;font-size:17px;line-height:1.5;color:rgba(22,24,25,.85)}
+    .aviso-email p:last-child{margin-bottom:0}
+    .aviso-email .remetente{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px dashed #8EC2FB;border-radius:8px;padding:6px 12px;font:600 16px 'Radio Canada Big',sans-serif;color:#161819;cursor:pointer}
+    .aviso-email .remetente svg{width:15px;height:15px;color:#6B6A63}
+    .aviso-email ol{margin:6px 0 0;padding-left:20px;font-size:16px;line-height:1.5}
+    .aviso-email ol li{margin-bottom:4px}
+    @media (max-width:1024px){.aviso-email{border:2px solid #B9D9FC;border-top:none}}
+    @media (max-width:767px){
+      .aviso-email{flex-direction:column;align-items:center;text-align:center;padding:26px 20px}
+      .aviso-email h2{font-size:26px}
+      .aviso-email ol{text-align:left}
     }
     </style>
 </head>
@@ -119,7 +138,7 @@
                 <img src="img/logo-azul.svg" alt="Mapas da Lulu">
             </a>
 
-            <h1>Sua <b>amostra grátis</b> foi liberada!</h1>
+            <h1>Suas <b>amostras grátis</b> foram liberadas!</h1>
 
             <div class="box-download">
                 <img src="img/mockup-obrigado.webp" class="mockup-obrigado" alt="Mockup Mapas da Lulu">
@@ -132,6 +151,20 @@
                             <span class="btn-icon"><img src="img/ic-download.svg" alt="Baixar amostras grátis"></span>
                         </span>
                     </a>
+                </div>
+            </div>
+
+            <div class="aviso-email" role="region" aria-label="Aviso de e-mail">
+                <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg></div>
+                <div>
+                    <h2>Abra o seu e-mail: <b>tem um bônus te esperando</b></h2>
+                    <p>Acabei de enviar as amostras para <b data-email-destino>o seu e-mail</b>, junto com um bônus especial: o <b>Workshop Mapeando a Aprovação</b>. Ele chega só por lá.</p>
+                    <p>O e-mail sai pelo remetente <button class="remetente" type="button" data-copia="contato@mapasdalulu.com.br">contato@mapasdalulu.com.br <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button></p>
+                    <ol>
+                        <li>Abra a sua caixa de entrada agora e procure por esse remetente.</li>
+                        <li>Se não estiver lá, confira as abas <b>Promoções</b> e <b>Spam</b>.</li>
+                        <li>Abra o e-mail, clique no link do bônus e marque como importante (ou adicione o remetente aos contatos). Assim, as próximas mensagens não se perdem.</li>
+                    </ol>
                 </div>
             </div>
 
@@ -160,5 +193,23 @@
         </div>
     </section>
 
+    <script>
+    // E-mail informado no cadastro/pesquisa (fica só neste navegador) e botão de copiar o remetente
+    (function(){
+      var em = '';
+      try { em = (JSON.parse(sessionStorage.getItem('mdl_amostras') || '{}') || {}).email || ''; } catch (e) {}
+      if (!em) em = new URLSearchParams(location.search).get('email') || '';
+      var alvo = document.querySelector('[data-email-destino]');
+      if (alvo && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)) alvo.textContent = em;
+      var b = document.querySelector('[data-copia]');
+      if (b) b.addEventListener('click', function(){
+        if (!navigator.clipboard) return;
+        navigator.clipboard.writeText(b.dataset.copia).then(function(){
+          var t = b.firstChild.textContent; b.firstChild.textContent = 'Copiado! ';
+          setTimeout(function(){ b.firstChild.textContent = t; }, 1400);
+        });
+      });
+    })();
+    </script>
 </body>
 </html>

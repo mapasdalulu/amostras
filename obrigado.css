@@ -1,0 +1,285 @@
+@font-face {
+    font-family: 'Radio Canada Big';
+    src: url('fonts/RadioCanadaBig-Regular.woff2') format('woff2'),
+        url('fonts/RadioCanadaBig-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Radio Canada Big';
+    src: url('fonts/RadioCanadaBig-Bold.woff2') format('woff2'),
+        url('fonts/RadioCanadaBig-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Radio Canada Big';
+    src: url('fonts/RadioCanadaBig-SemiBold.woff2') format('woff2'),
+        url('fonts/RadioCanadaBig-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'New Spirit';
+    src: url('fonts/NewSpirit-SemiBoldCondensed.woff2') format('woff2'),
+        url('fonts/NewSpirit-SemiBoldCondensed.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    outline: none;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Radio Canada Big', sans-serif;
+    background-color: #FFFDF3;
+    overflow-x: clip;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+a.btn {
+    padding: 12px 20px;
+    background-color: #abd625;
+    border: 1px solid #91b81d;
+    border-radius: 100px;
+    transition: all .5s ease;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 110%;
+    display: flex;
+}
+a.btn:hover {
+    background-color: #91b81d;
+}
+a.btn .btn-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+a.btn .btn-text {
+    color: #FFFDF3;
+    padding-top: 2px;
+}
+a.btn .btn-icon {
+    display: flex;
+}
+
+/* hero */
+#hero {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0 50px 0;
+    background-image: url(img/bg-sobre.svg);
+    background-size: cover;
+}
+#hero .container {
+    width: 1140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#hero h1 {
+    font-family: "New Spirit", serif;
+    font-size: 66px;
+    line-height: 115%;
+    color: #161819;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+    margin: 30px 0 30px 0;
+}
+#hero h1 b {
+    color: #469CF9;
+    font-weight: 600;
+}
+
+.box-download {
+    display: flex;
+    align-items: center;
+    background: #F9F5E7;
+    border: 2px solid #d6d1bc;
+    border-radius: 25px 25px 0 0;
+    padding: 30px;
+}
+.box-download img.mockup-obrigado {
+    width: 40%;
+}
+.box-download .box-download-content {
+    width: calc(60% - 30px);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-left: 30px;
+}
+.box-download .box-download-content h2 {
+    font-family: "New Spirit", serif;
+    font-size: 54px;
+    line-height: 120%;
+    color: #469CF9;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.box-download .box-download-content h4 {
+    font-size: 18px;
+    color: rgba(22, 24, 25, 0.8);
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.boxes {
+    width: 100%;
+    display: flex;
+}
+.boxes h3 {
+    font-family: "New Spirit", serif;
+    font-size: 42px;
+    line-height: 120%;
+    color: #161819;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.box-combos {
+    background: #ece8d9;
+    border: 2px solid #d6d1bc;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    width: calc(50% - 40px);
+    align-items: center;
+    border-radius: 0 0 0 25px;
+    border-right-width: 1px;
+    border-top: none;
+}
+
+.box-combos img {
+    height: 250px;
+    width: auto;
+}
+
+.box-pacote-completo {
+    background-color: #E6DFCA;
+    border: 2px solid #d6d1bc;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    border-left-width: 1px;
+    border-top: none;
+    border-radius: 0 0 25px 0;
+    padding: 0 0 20px 0;
+}
+.box-pacote-completo h3 {
+    padding: 0 20px;
+}
+.box-pacote-completo img {
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 1024px) {
+    .hidden-tablet {
+        display: none;
+    }
+
+    .container {
+        max-width: calc(100% - 40px);
+    }
+
+    .box-download {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+    .box-download img.mockup-obrigado {
+        width: 80%;
+        margin-top: -30px;
+    }
+    .box-download .box-download-content {
+        width: 100%;
+        align-items: center;
+        padding: 20px 0;
+        margin-left: 0;
+    }
+
+    .boxes {
+        flex-direction: column;
+    }
+
+    .box-combos {
+        width: calc(100% - 44px);
+        border-radius: 0;
+        padding: 40px 20px;
+        border: 2px solid #d6d1bc;
+        border-top: none;
+    }
+
+    .box-pacote-completo {
+        width: calc(100% - 4px);
+        border: 2px solid #d6d1bc;
+        border-top: none;
+        border-radius: 0 0 25px 25px;
+        padding-bottom: 40px;
+    }
+}
+
+@media (max-width: 767px) {
+    .hidden-mobile {
+        display: none;
+    }
+
+    #hero h1 {
+        font-size: 48px;
+    }
+
+    .box-download img.mockup-obrigado {
+        width: 100%;
+        margin-top: -30px;
+    }
+    .box-download .box-download-content {
+        padding: 20px 20px 40px 20px;
+        width: calc(100% - 40px);
+    }
+    .box-download .box-download-content h2,
+    .boxes h3 {
+        font-size: 24px;
+    }
+    .box-download .box-download-content h4 {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .boxes a {
+        font-size: 14px;
+        padding: 15px;
+    }
+
+    .box-combos {
+        padding: 0 20px 30px 20px;
+    }
+
+    .box-pacote-completo {
+        padding-bottom: 30px;
+    }
+}

@@ -173,7 +173,7 @@ h1 b{color:var(--azul);font-weight:600}
         <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="#161819" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
         <h2>Amostras liberadas!</h2>
         <p>Estou te levando para a página de download…</p>
-        <p><a href="obrigado-final" data-ir>Se não abrir sozinha, clique aqui.</a></p>
+        <p><a href="obrigado-final.html" data-ir>Se não abrir sozinha, clique aqui.</a></p>
       </div>
 
       <div class="privado"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Suas respostas ficam só com a equipe dos Mapas da Lulu</div>
@@ -213,7 +213,7 @@ h1 b{color:var(--azul);font-weight:600}
   const params = new URLSearchParams(location.search);
 
   /* Para onde a pessoa vai depois da pesquisa */
-  const FINAL = 'obrigado-final';
+  const FINAL = 'obrigado-final.html';
   /* O Kit não é chamado aqui: o cadastro já aplica a tag "Baixaram amostras",
      que dispara a automação "Boas-vindas Amostras" (e-mail com as amostras + bônus). */
   const UTMS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
